@@ -20,4 +20,5 @@ Feature: Buy a flight ticket
     When select the first flight
     Then be redirected to payment page
     When fill all required fields
+    And click in purchase button
     Then be redirected to confirmation page
