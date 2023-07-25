@@ -1,4 +1,4 @@
-Feature: Buy a flight ticket
+Feature: Buy_flight_ticket
   # Description of buying process in Blazedemo.com
   # E2E = End to End
   Scenario: From Sao Paulo to Rome

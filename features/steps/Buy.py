@@ -1,18 +1,42 @@
 from behave import given, when, then
+from selenium import *
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
+# Always need to import environment to run behave
+from features import environment
 
+# Method to be executed before Feature, to run all steps forward
+def before_feature(context, feature):
+    if 'Buy_flight_ticket' in feature.tag:
+        context.execute_steps(
+            # Can be included other actions
+        )
 
 @given(u'access Blazedemo website')
 def step_impl(context):
+    context.driver.get('https://www.blazedemo.com')
     print('Step 1 - Access successful')
 
-
-@when(u'select origin as "São Paolo"')
-def step_impl(context):
+@when(u'select origin as "{origin}"')
+def step_impl(context, origin):
+    # Set up the list with all origin cities
+    origin_list = context.driver.find_element(By.NAME, 'fromPort')
+    # Create an object to allow the list options selection
+    origin_object = Select(origin_list)
+    # Select the element in the list
+    origin_object.select_by_visible_text(origin)
+    # origin_object.select_by_value(origin) - Is possible to use this sentence to get the city name
     print('Step 2 - Selected the origin city')
 
 
-@when(u'select destiny as "Rome"')
-def step_impl(context):
+@when(u'select destiny as "{destiny}"')
+def step_impl(context, destiny):
+    # Set up the list with all origin cities
+    destiny_list = context.driver.find_element(By.NAME, 'toPort')
+    # Create an object to allow the list options selection
+    destiny_object = Select(destiny_list)
+    # Select the element in the list
+    destiny_object.select_by_visible_text(destiny)
     print('Step 3 - Selected the destiny city')
 
 
