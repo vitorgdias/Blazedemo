@@ -13,9 +13,9 @@ Feature: Buy_flight_ticket
     And click in purchase button
     Then be redirected to confirmation page
 
-  Scenario: From Sao Paulo to Rome compact
+  Scenario: From Boston to Berlin compact
     Given access Blazedemo website
-    When select flight from "São Paolo" to "Rome"
+    When select flight from "Boston" to "Berlin"
     Then be redirected to flight page
     When select the first flight
     Then be redirected to payment page
