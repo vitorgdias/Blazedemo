@@ -8,7 +8,7 @@ from features import environment
 
 # Method to be executed before Feature, to run all steps forward
 def before_feature(context, feature):
-    if 'Buy a flight ticket' in feature.tag:
+    if 'Buy_flight_ticket' in feature.tag:
         context.execute_steps(
             # Can be included other actions
         )
