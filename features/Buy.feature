@@ -13,12 +13,17 @@ Feature: Buy_flight_ticket
     And click in purchase button
     Then be redirected to confirmation page
 
-  Scenario: From Boston to Berlin compact
+  Scenario Outline: From origin to destiny
     Given access Blazedemo website
-    When select flight from "Boston" to "Berlin"
+    When select flight from "<origin>" to "<destiny>"
     Then be redirected to flight page
     When select the first flight
     Then be redirected to payment page
     When fill all required fields
     And click in purchase button
     Then be redirected to confirmation page
+
+    Examples:
+      | origin       | destiny      |
+      | Philadelphia | Buenos Aires |
+      | Mexico City  | Cairo        |
